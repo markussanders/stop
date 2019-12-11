@@ -76,12 +76,15 @@ export default class Timer extends Component {
             switch (this.state.running) {
                 case false:
                     this.start();
+                    this.props.handleAction('stop');
                     break;
                 case true:
                     this.stop();
+                    this.props.handleAction('start');
                     break;
                 default: 
                     this.reset();
+                    this.props.handleAction('reset');
             }
         }
 
