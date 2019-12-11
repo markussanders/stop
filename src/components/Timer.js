@@ -18,7 +18,6 @@ export default class Timer extends Component {
     }
 
     start() {
-        console.log('performance.now()', performance.now());
         if (!this.state.time) this.setState({time: performance.now()});
         if (!this.state.running) {
             this.setState({running: true});
@@ -60,15 +59,16 @@ export default class Timer extends Component {
     }
 
     format(times) {
-        const pad = (value, count) => {
+        const pad = (value, count, ms=undefined) => {
             let result = value.toString();
             for (let i; result.length < count; --count) {
+                if (ms) result += '0';
                 result = '0' + result;
             }
             return result;
         }
 
-        return `${pad(times[0], 2)}:${pad(times[1], 2)}:${pad(times[2], 2)}`;
+        return `${pad(times[0], 2)}:${pad(times[1], 2)}:${pad(times[2], 2, true)}`;
     }
 
     handleKeyDown(event) {
