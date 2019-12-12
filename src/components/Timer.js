@@ -73,21 +73,24 @@ export default class Timer extends Component {
 
     handleKeyDown(event) {
         if (event.keyCode === 32) {
-            switch (this.state.running) {
-                case false:
+            if (this.state.running) {
+                if (this.state.times[2] > 0 ) {
+                    this.stop();
+                    this.props.handleAction('reset');
+                } else {
+                    this.reset();
+                    this.props.handleAction('start');
+                }
+            } else if (!this.state.running) {
+                if (this.state.times[2] > 0) {
+                    this.reset();
+                    this.props.handleAction('start');
+                } else {
                     this.start();
                     this.props.handleAction('stop');
-                    break;
-                case true:
-                    this.stop();
-                    this.props.handleAction('start');
-                    break;
-                default: 
-                    this.reset();
-                    this.props.handleAction('reset');
+                }
             }
         }
-
     }
 
     render() {
@@ -96,6 +99,7 @@ export default class Timer extends Component {
              onKeyDown={event => this.handleKeyDown(event)}
              tabIndex={-1}>
                 {this.format(this.state.times)}
+                {/* <button onClick={() => this.reset()}> RESET </button> */}
             </div>
         ) 
     }
