@@ -95,11 +95,11 @@ export default class Timer extends Component {
 
     render() {
         return (
-            <div className="timer"
+            <div 
+             className="timer"
              onKeyDown={event => this.handleKeyDown(event)}
              tabIndex={-1}>
                 {this.format(this.state.times)}
-                {/* <button onClick={() => this.reset()}> RESET </button> */}
             </div>
         ) 
     }
