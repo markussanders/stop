@@ -4,27 +4,22 @@ export default class Goal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            goal: '',
-            score: '',
+            goal: this.props.goal,
         }
     }
 
-    setScore = score => {
-        this.setState({score});
-    }
-
     renderGoalMessage() {
-        if (this.state.goal === this.state.score) {
-            return <h4>WINNER</h4>
+        if (this.state.goal === this.props.score) {
+            return <h2>WINNER</h2>
         } else {
-            return null
+            return null;
         }
     }
 
     render() {
         return (
             <div className="goal-message">
-                <h4> </h4>
+                {this.renderGoalMessage()}
             </div>
         )
     }

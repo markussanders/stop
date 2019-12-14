@@ -29,7 +29,8 @@ export default class Timer extends Component {
         this.setState({
             running: false,
             time: null,
-        })
+        });
+        this.props.handleScore(this.state.times);
     }
 
     step(timestamp) {
