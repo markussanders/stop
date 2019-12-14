@@ -31,13 +31,14 @@ export default class Timer extends Component {
             running: false,
             time: null,
         });
-        this.props.handleScore(this.state.times);
+        const formattedTime = this.format(this.state.times);
+        this.props.handleScore(formattedTime);
     }
 
     step(timestamp) {
         if (!this.state.running) return;
         this.calculate(timestamp);
-        this.setState({time: timestamp});
+        this.setState({ time: timestamp });
         requestAnimationFrame(() => this.step(timestamp));
     }
     
@@ -69,7 +70,6 @@ export default class Timer extends Component {
             }
             return result;
         }
-
         return `${pad(times[0], 2)}:${pad(times[1], 2)}:${pad(times[2], 2, true)}`;
     }
 
