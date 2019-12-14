@@ -5,18 +5,22 @@ export default class Goal extends Component {
         super(props);
         this.state = {
             goal: this.props.goal,
+            difficulty: this.props.difficulty
         }
     }
 
     renderGoalMessage() {
-        if (this.state.goal === this.props.score) {
+        const score = this.state.difficulty === 'HARD' ? this.props.score.split(',').pop() : this.props.score;
+        if (this.state.goal === score && score) {
             return <h2>WIN</h2>
-        } else if (this.state.goal !== this.props.score && this.props.score) {
+        } else if (this.state.goal !== score && score) {
             return <h2>FAIL</h2>
         } else {
             return null;
         }
     }
+
+    
 
     render() {
         return (
