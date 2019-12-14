@@ -18,7 +18,13 @@ export default class App extends React.Component {
   }
 
   handleScore = times => {
-    const score = String(times);
+    let score;
+    if (this.state.difficulty === 'HARD') {
+      const split = times.split(':');
+      score = `${split[0]}:${split[1]}`;
+    } else if (this.state.difficulty === 'IMPOSSIBLE') {
+      score = times;
+    }
     this.setState({ score });
   }
 
@@ -30,14 +36,13 @@ export default class App extends React.Component {
   setDifficulty = difficulty => {
     this.setState({ difficulty });
     if (difficulty === 'HARD') {
-      this.setState({ goal: '10,0' });
+      this.setState({ goal: '10:00' });
     } else if (difficulty === 'IMPOSSIBLE') {
-      this.setState({ goal: '10,0,000'});
+      this.setState({ goal: '10:00:000'});
     }
   }
 
   render() {
-    console.log('app state', this.state);
     return (
       <div>
         <Timer handleAction={this.handleAction} handleScore={this.handleScore} />
