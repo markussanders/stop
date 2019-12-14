@@ -10,7 +10,9 @@ export default class Goal extends Component {
 
     renderGoalMessage() {
         if (this.state.goal === this.props.score) {
-            return <h2>WINNER</h2>
+            return <h2>WIN</h2>
+        } else if (this.state.goal !== this.props.score && this.props.score) {
+            return <h2>FAIL</h2>
         } else {
             return null;
         }

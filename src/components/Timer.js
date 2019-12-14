@@ -15,6 +15,7 @@ export default class Timer extends Component {
     reset() {
         const times = [0, 0, 0];
         this.setState({ times });
+        this.props.handleScore('');
     }
 
     start() {
