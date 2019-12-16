@@ -1,34 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-export default class DifficultyForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { value: '' };
+const DifficultyForm = props => {
+
+    const handleChange = event => {
+        props.setDifficulty(event.target.value);
+        props.handleChangeDifficulty();
     }
 
-    handleChange = event => {
-        this.setState({
-            value: event.target.value
-        });
-    }
+    return (
+        <div className="modal is-active">
+            <div className="modal-background"></div>
+            <div className="modal-content modal-difficulty">
+                <form className="select is-danger">
+                    <h2> CHOOSE YOUR DIFFICULTY: </h2>
+                    <select value={props.difficulty} onChange={event => handleChange(event)}>
+                        <option value="HARD">HARD</option>
+                        <option value="IMPOSSIBLE">IMPOSSIBLE</option>
+                    </select>
+                    <button className="modal-close is-large" aria-label="close" onClick={() => props.handleChangeDifficulty()}></button>
+                </form>
+            </div>
+        </div>
+    );
+}
 
-    handleSubmit = event => {
-        event.preventDefault();
-        this.props.setDifficulty(this.state.value);
-    }
-
-    render() {
-        return (
-        <form onSubmit={this.handleSubmit}>
-            <label> DIFFICULTY:
-            <select value={this.state.value} onChange={this.handleChange}>
-                <option value="">--</option>
-                <option value="HARD">HARD</option>
-                <option value="IMPOSSIBLE">IMPOSSIBLE</option>
-            </select>
-            </label>
-            <input type="submit" value="COMMIT" />
-        </form>
-        );
-  }
-}       
+export default DifficultyForm;
