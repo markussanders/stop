@@ -19,7 +19,6 @@ export default class Timer extends Component {
     }
 
     start() {
-        if (!this.state.time) this.setState({time: performance.now()});
         if (!this.state.running) {
             this.setState({running: true});
             requestAnimationFrame(() => this.step(this.state.time));
@@ -27,22 +26,18 @@ export default class Timer extends Component {
     }
 
     stop() {
-        this.setState({
-            running: false,
-            time: null,
-        });
+        this.setState({ running: false });
         const formattedTime = this.format(this.state.times);
         this.props.handleScore(formattedTime);
     }
 
     step(timestamp) {
         if (!this.state.running) return;
-        this.calculate(timestamp);
-        this.setState({ time: timestamp });
+        this.calculate();
         requestAnimationFrame(() => this.step(timestamp));
     }
     
-    calculate(timestamp) {
+    calculate() {
         let times = this.state.times;
         
         setInterval(() => {
@@ -57,6 +52,13 @@ export default class Timer extends Component {
             times[0] += 1;
             times[1] -= 60;
         }
+
+        if (times[0] === 60) {
+            times[2] = 0;
+            this.stop();
+            this.props.handleAction('reset');
+        }
+
         this.setState({ times });
     }
 
