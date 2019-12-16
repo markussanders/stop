@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bulma/css/bulma.css';
 import Timer from './components/Timer';
 import Goal from './components/Goal';
 import DifficultyForm from './components/DifficultyForm';
@@ -10,7 +11,8 @@ export default class App extends React.Component {
     action: 'begin',
     score: '',
     goal: '',
-    difficulty: '',
+    difficulty: 'HARD',
+    changeDifficulty: false,
   }
   
   handleAction = action => {
@@ -42,18 +44,39 @@ export default class App extends React.Component {
     }
   }
 
+  handleChangeDifficulty = () => {
+    this.setState({ changeDifficulty: !this.state.changeDifficulty });
+  }
+
   render() {
     return (
-      <div>
-        <Timer handleAction={this.handleAction} handleScore={this.handleScore} />
-        {this.state.difficulty ? 
-          <button onClick={() => this.setState({ difficulty: '' }) }>Change Difficulty</button>
-          : 
-          <DifficultyForm setDifficulty={this.setDifficulty}/>  
-        }
-        <h2 id="prompt">{`Press the \`spacebar\` to ${this.state.action}.`}</h2>
-        <Goal score={this.state.score} goal={this.state.goal} difficulty={this.state.diffuclty} />
-      </div>
+      <section id="app-content" className="hero is-fullheight is-dark is-bold">
+          <Timer handleAction={this.handleAction} handleScore={this.handleScore} />
+          <div className="hero-foot">
+            <nav className="columns">
+                <div className="column has-text-centered">
+                  <h2>DIFFICULTY:
+                    <span className="has-text-danger"> {this.state.difficulty}</span>
+                    <span className="icon" onClick={() => this.handleChangeDifficulty()}><i className="fas fa-edit"></i></span>
+                  </h2>
+                </div>
+                {
+                  this.state.changeDifficulty ?
+                  <DifficultyForm setDifficulty = {
+                    this.setDifficulty
+                  }
+                  handleChangeDifficulty = {
+                    this.handleChangeDifficulty
+                  }
+                  difficulty = {
+                    this.state.difficulty
+                  }
+                  /> : null}
+              <h2 id="prompt" className="column has-text-centered">{`Press the \`spacebar\` to ${this.state.action}.`}</h2>
+              <Goal score={this.state.score} goal={this.state.goal} difficulty={this.state.diffuclty} action={this.state.action} />
+            </nav>
+          </div>
+      </section>
     )
   }
 

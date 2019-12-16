@@ -97,12 +97,17 @@ export default class Timer extends Component {
 
     render() {
         return (
-            <div 
-             className="timer"
-             onKeyDown={event => this.handleKeyDown(event)}
-             tabIndex={-1}>
-                {this.format(this.state.times)}
-            </div>
+                <div className="hero-body timer"
+                onKeyDown={event => this.handleKeyDown(event)}
+                tabIndex={-1}>
+                    <div className="container has-text-centered">
+                        <div className="title is-centered">
+                            <h2 className="title timer">
+                                {this.format(this.state.times)}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
         ) 
     }
     
