@@ -57,7 +57,6 @@ export default class Timer extends Component {
             times[0] += 1;
             times[1] -= 60;
         }
-
         this.setState({ times });
     }
 
@@ -97,17 +96,17 @@ export default class Timer extends Component {
 
     render() {
         return (
-                <div className="hero-body timer"
-                onKeyDown={event => this.handleKeyDown(event)}
-                tabIndex={-1}>
-                    <div className="container has-text-centered">
-                        <div className="title is-centered">
-                            <h2 className="title timer">
-                                {this.format(this.state.times)}
-                            </h2>
-                        </div>
+            <div className="hero-body"
+            onKeyDown={event => this.handleKeyDown(event)}
+            tabIndex={-1}>
+                <div className="container has-text-centered">
+                    <div className="title is-centered">
+                        <h2 className="title timer">
+                            {this.format(this.state.times)}
+                        </h2>
                     </div>
                 </div>
+            </div>
         ) 
     }
     
