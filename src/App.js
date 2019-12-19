@@ -4,6 +4,7 @@ import 'bulma/css/bulma.css';
 import Timer from './components/Timer';
 import Goal from './components/Goal';
 import DifficultyForm from './components/DifficultyForm';
+import BlindTimer from './components/BlindTimer';
 
 export default class App extends React.Component {
 
@@ -51,7 +52,7 @@ export default class App extends React.Component {
   render() {
     return (
       <section id="app-content" className="hero is-fullheight is-dark is-bold">
-          <Timer handleAction={this.handleAction} handleScore={this.handleScore} />
+          {/* <Timer handleAction={this.handleAction} handleScore={this.handleScore} />
           <div className="hero-foot">
             <nav className="columns">
                 <div className="column has-text-centered">
@@ -73,9 +74,10 @@ export default class App extends React.Component {
                   }
                   /> : null}
               <h2 id="prompt" className="column has-text-centered">{`Press the \`spacebar\` to ${this.state.action}.`}</h2>
-              <Goal score={this.state.score} goal={this.state.goal} difficulty={this.state.diffuclty} action={this.state.action} />
-            </nav>
-          </div>
+              <Goal score={this.state.score} goal={this.state.goal} difficulty={this.state.diffuclty} action={this.state.action} /> */}
+              <BlindTimer />
+            {/* </nav>
+          </div> */}
       </section>
     )
   }
