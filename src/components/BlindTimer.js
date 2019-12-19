@@ -45,6 +45,7 @@ export default class BlindTimer extends Component {
         let time = `${s}.${ms}`;
 
         this.setState({ time });
+        this.handleScore(time);
     }
 
     handleClick = () => {
@@ -55,6 +56,7 @@ export default class BlindTimer extends Component {
         } else if (!this.state.running && this.state.action === 'RESET') {
             this.reset();
         }
+        this.props.handleAction(this.state.action);
     }
 
     handleKeyDown= event => {
@@ -63,8 +65,11 @@ export default class BlindTimer extends Component {
         }
     }
 
+    handleScore = time => {
+        this.props.handleScore(time);
+    }
+
     render() {
-        console.log('state = ', this.state);
         return (
             <div>
                 <h2>{this.state.running ? "??:???" : this.state.time}</h2>
