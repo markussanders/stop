@@ -34,7 +34,7 @@ export default class App extends React.Component {
   render() {
     return (
       <section id="app-content" className="hero is-fullheight is-dark is-bold">
-        <BlindTimer handleScore={this.handleScore} handleAction={this.handleAction} />
+          <BlindTimer handleScore={this.handleScore} handleAction={this.handleAction} />
         <div className = "hero-foot">
           <nav className="columns">
             <div className="column has-text-centered">

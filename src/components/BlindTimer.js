@@ -71,12 +71,16 @@ export default class BlindTimer extends Component {
 
     render() {
         return (
+        <div className="hero-body">
+          <div className="container">
             <div className="container has-text-centered">
                 <div className="title is-centered">
                     <h2 className="title timer">{this.state.running ? "??:???" : this.state.time}</h2>
                     <button tabIndex={-1} onClick={() => this.handleClick()} onKeyDown={event => this.handleKeyDown(event)}>{this.state.action}</button>
                 </div>
             </div>
+          </div>
+        </div>
         )
     }
 }
