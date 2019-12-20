@@ -47,6 +47,7 @@ export default class App extends React.Component {
         <div className = "hero-foot">
           <nav className="columns">
             <div className="column has-text-centered">
+              <br/>
               <h2>DIFFICULTY:
                 <span className="has-text-danger"> {this.state.difficulty}</span>
                 <span className="icon" onClick={() => this.handleChangeDifficulty()}><i className="fas fa-edit"></i></span>
@@ -64,7 +65,10 @@ export default class App extends React.Component {
                   this.state.difficulty
                 }
               /> : null}
-              <span className="icon" onClick={() => this.pivotLightDark() }><i class="fas fa-adjust"></i></span>
+              <div className="column has-text-centered">
+                <span className="icon" onClick={() => this.pivotLightDark() }><i class="fas fa-adjust"></i></span>
+                <h4>Light/Dark</h4>
+              </div>
             <GoalMessage score={this.state.score} action={this.state.action} difficulty={this.state.difficulty}/>
           </nav>
         </div>
