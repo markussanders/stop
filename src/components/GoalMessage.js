@@ -1,35 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 
+const GoalMessage = props => {
 
-export default class GoalMessage extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            difficulty: '',
-        }
+    const handleDifficulty = () => {
+        return props.difficulty === "IMPOSSIBLE" ? props.score : Math.floor(props.score);
     }
     
-    handleDifficulty() {
-        return this.state.difficulty === "IMPOSSIBLE" ? this.props.score : Math.floor(this.props.score);
-    }
-    
-    renderMessage = () => {
-        let score = this.handleDifficulty();
-        const stopped = this.props.action === 'STOP';
-        if (score === 10 && stopped) {
+    const renderMessage = () => {
+        let score = handleDifficulty();
+        const stopped = props.action === 'STOP';
+        if ((score - 10) === 0 && stopped) {
             return <h2 className="title is-5 has-text-success shake"> WIN </h2>
-        } else if (this.state.goal !== score && stopped) {
+        } else if (score && stopped) {
             return <h2 className="title is-5 has-text-danger shake"> FAIL </h2>
         }
     }
 
-    render() {
-        console.log('this.props.action = ', this.props.action);
-        return (
-            <div className="column has-text-centered">
-                {this.renderMessage()}
-            </div>
-        )
-    }
+    return (
+        <div className="column has-text-centered">
+            {renderMessage()}
+        </div>
+    )
 }
+
+export default GoalMessage;

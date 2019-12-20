@@ -4,7 +4,6 @@ const DifficultyForm = props => {
 
     const handleChange = event => {
         props.setDifficulty(event.target.value);
-        props.handleChangeDifficulty();
     }
 
     return (

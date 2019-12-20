@@ -51,7 +51,7 @@ export default class BlindTimer extends Component {
     handleClick = () => {
         if (!this.state.running && this.state.action === 'START') {
             this.start();
-        } else if (this.state.running &&  this.state.action === 'STOP') {
+        } else if (this.state.running && this.state.action === 'STOP') {
             this.stop();
         } else if (!this.state.running && this.state.action === 'RESET') {
             this.reset();
@@ -71,9 +71,11 @@ export default class BlindTimer extends Component {
 
     render() {
         return (
-            <div>
-                <h2>{this.state.running ? "??:???" : this.state.time}</h2>
-                <button tabIndex={-1} onClick={() => this.handleClick()} onKeyDown={event => this.handleKeyDown(event)}>{this.state.action}</button>
+            <div className="container has-text-centered">
+                <div className="title is-centered">
+                    <h2 className="title timer">{this.state.running ? "??:???" : this.state.time}</h2>
+                    <button tabIndex={-1} onClick={() => this.handleClick()} onKeyDown={event => this.handleKeyDown(event)}>{this.state.action}</button>
+                </div>
             </div>
         )
     }
