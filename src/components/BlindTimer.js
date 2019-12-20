@@ -69,6 +69,19 @@ export default class BlindTimer extends Component {
         this.props.handleScore(time);
     }
 
+    buttonColor = () => {
+        switch (this.state.action) {
+            case 'START':
+                return 'is-success';
+            case 'STOP':
+                return 'is-danger';
+            case 'RESET':
+                return 'is-warning';
+            default:
+                return 'is-dark';
+        }
+    }
+
     render() {
         return (
         <div className="hero-body">
@@ -76,7 +89,19 @@ export default class BlindTimer extends Component {
             <div className="container has-text-centered">
                 <div className="title is-centered">
                     <h2 className="title timer">{this.state.running ? "??:???" : this.state.time}</h2>
-                    <button tabIndex={-1} onClick={() => this.handleClick()} onKeyDown={event => this.handleKeyDown(event)}>{this.state.action}</button>
+                    <button 
+                    className={`button is-large is-outlined ${this.buttonColor()}`}
+                    tabIndex = {
+                        -1
+                    }
+                    onClick = {
+                        () => this.handleClick()
+                    }
+                    onKeyDown = {
+                        event => this.handleKeyDown(event)
+                    } > {
+                        this.state.action
+                    } </button>
                 </div>
             </div>
           </div>
