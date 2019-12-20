@@ -12,6 +12,7 @@ export default class App extends React.Component {
     score: '',
     difficulty: 'HARD',
     changeDifficulty: false,
+    isLight: true,
   }
   
   handleAction = action => {
@@ -31,9 +32,17 @@ export default class App extends React.Component {
     this.handleChangeDifficulty();
   }
 
+  pivotLightDark = () => {
+    this.setState({isLight: !this.state.isLight});
+  }
+  
+  color() {
+    return this.state.isLight ? 'is-light' : 'is-dark';
+  }
+
   render() {
     return (
-      <section id="app-content" className="hero is-fullheight is-dark is-bold">
+      <section id="app-content" className={`hero is-fullheight ${this.color()} is-bold`}>
           <BlindTimer handleScore={this.handleScore} handleAction={this.handleAction} />
         <div className = "hero-foot">
           <nav className="columns">
@@ -55,6 +64,7 @@ export default class App extends React.Component {
                   this.state.difficulty
                 }
               /> : null}
+              <span className="icon" onClick={() => this.pivotLightDark() }><i class="fas fa-adjust"></i></span>
             <GoalMessage score={this.state.score} action={this.state.action} difficulty={this.state.difficulty}/>
           </nav>
         </div>
