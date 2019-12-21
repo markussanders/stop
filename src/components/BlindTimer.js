@@ -16,6 +16,7 @@ export default class BlindTimer extends Component {
     start() {
         let startTime = new Date().getTime();
         this.setState({ startTime, running: true, action: 'STOP' });
+        this.props.toggleRunning();
     }
 
     stop() {
@@ -23,6 +24,7 @@ export default class BlindTimer extends Component {
         this.setState({ endTime, running: false, action: 'RESET' });
         const duration = this.getDuration(endTime);
         this.formatTime(duration);
+        this.props.toggleRunning();
     }
 
     reset() {
@@ -59,7 +61,7 @@ export default class BlindTimer extends Component {
         this.props.handleAction(this.state.action);
     }
 
-    handleKeyDown= event => {
+    handleKeyDown = event => {
         if (event.keyCode === 32) {
             this.handleClick();
         }

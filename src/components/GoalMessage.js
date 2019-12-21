@@ -18,6 +18,7 @@ const GoalMessage = props => {
 
     return (
         <div className="column has-text-centered">
+            <br/>
             {renderMessage()}
         </div>
     )

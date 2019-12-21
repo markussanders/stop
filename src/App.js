@@ -4,6 +4,7 @@ import 'bulma/css/bulma.css';
 import DifficultyForm from './components/DifficultyForm';
 import BlindTimer from './components/BlindTimer';
 import GoalMessage from './components/GoalMessage';
+import Taunt from './components/Taunt';
 
 export default class App extends React.Component {
 
@@ -13,6 +14,7 @@ export default class App extends React.Component {
     difficulty: 'HARD',
     changeDifficulty: false,
     isLight: true,
+    isRunning: false,
   }
   
   handleAction = action => {
@@ -40,10 +42,14 @@ export default class App extends React.Component {
     return this.state.isLight ? 'is-light' : 'is-dark';
   }
 
+  toggleRunning = () => {
+    this.setState({isRunning: !this.state.isRunning});
+  }
+
   render() {
     return (
       <section id="app-content" className={`hero is-fullheight ${this.color()} is-bold`}>
-          <BlindTimer handleScore={this.handleScore} handleAction={this.handleAction} />
+          <BlindTimer handleScore={this.handleScore} handleAction={this.handleAction} toggleRunning={this.toggleRunning}/>
         <div className = "hero-foot">
           <nav className="columns">
             <div className="column has-text-centered">
@@ -66,10 +72,24 @@ export default class App extends React.Component {
                 }
               /> : null}
               <div className="column has-text-centered">
-                <span className="icon" onClick={() => this.pivotLightDark() }><i class="fas fa-adjust"></i></span>
+                <span className="icon" onClick={() => this.pivotLightDark() }><i className="fas fa-adjust"></i></span>
                 <h4>Light/Dark</h4>
               </div>
-            <GoalMessage score={this.state.score} action={this.state.action} difficulty={this.state.difficulty}/>
+              {
+                this.state.isRunning ? 
+                  <Taunt isRunning={this.state.isRunning} /> 
+                  :
+                  <GoalMessage score = {
+                    this.state.score
+                  }
+                  action = {
+                    this.state.action
+                  }
+                  difficulty = {
+                    this.state.difficulty
+                  }
+                />
+              }
           </nav>
         </div>
       </section>
