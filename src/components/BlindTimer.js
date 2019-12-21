@@ -90,7 +90,7 @@ export default class BlindTimer extends Component {
           <div className="container">
             <div className="container has-text-centered">
                 <div className="title is-centered">
-                    <h2 className="title timer">{this.state.running ? "??:???" : this.state.time}</h2>
+                    <h2 className="big-title title timer">{this.state.running ? "??:???" : this.state.time}</h2>
                     <button 
                     className={`button is-large is-outlined ${this.buttonColor()}`}
                     tabIndex = {
