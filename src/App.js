@@ -5,6 +5,7 @@ import DifficultyForm from './components/DifficultyForm';
 import BlindTimer from './components/BlindTimer';
 import GoalMessage from './components/GoalMessage';
 import Taunt from './components/Taunt';
+import About from './components/About';
 
 export default class App extends React.Component {
 
@@ -15,6 +16,7 @@ export default class App extends React.Component {
     changeDifficulty: false,
     isLight: true,
     isRunning: false,
+    renderAbout: false,
   }
   
   handleAction = action => {
@@ -46,10 +48,27 @@ export default class App extends React.Component {
     this.setState({isRunning: !this.state.isRunning});
   }
 
+  toggleAbout = () => {
+    this.setState({renderAbout: !this.state.renderAbout});
+  }
   render() {
     return (
       <section id="app-content" className={`hero is-fullheight ${this.color()} is-bold`}>
-          <BlindTimer handleScore={this.handleScore} handleAction={this.handleAction} toggleRunning={this.toggleRunning}/>
+        <div className="hero-head">
+          <header className="navbar">
+            <div id="navbarMenuHeroC" className="navbar-menu">
+              <div className="navbar-end">
+                <div className="navbar-item">
+                  <span className="icon" onClick={() => this.toggleAbout()}>
+                    <i class="fas fa-info-circle"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
+        {this.state.renderAbout ? <About toggleAbout={this.toggleAbout} /> : null}
+        <BlindTimer handleScore={this.handleScore} handleAction={this.handleAction} toggleRunning={this.toggleRunning}/>
         <div className = "hero-foot">
           <nav className="columns">
             <div className="column has-text-centered">
@@ -95,5 +114,4 @@ export default class App extends React.Component {
       </section>
     )
   }
-
 };
