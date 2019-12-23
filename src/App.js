@@ -11,7 +11,7 @@ import Navbar from './containers/Navbar';
 export default class App extends React.Component {
 
   state = {
-    action: 'begin',
+    action: '',
     score: '',
     difficulty: 'HARD',
     changeDifficulty: false,
