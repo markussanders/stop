@@ -6,6 +6,7 @@ import BlindTimer from './components/BlindTimer';
 import GoalMessage from './components/GoalMessage';
 import Taunt from './components/Taunt';
 import About from './components/About';
+import Navbar from './containers/Navbar';
 
 export default class App extends React.Component {
 
@@ -54,19 +55,7 @@ export default class App extends React.Component {
   render() {
     return (
       <section id="app-content" className={`hero is-fullheight ${this.color()} is-bold`}>
-        <div className="hero-head">
-          <header className="navbar">
-            <div id="navbarMenuHeroC" className="navbar-menu">
-              <div className="navbar-end">
-                <div className="navbar-item">
-                  <span className="icon" onClick={() => this.toggleAbout()}>
-                    <i class="fas fa-info-circle"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </header>
-        </div>
+        <Navbar toggleAbout={this.toggleAbout}/>
         {this.state.renderAbout ? <About toggleAbout={this.toggleAbout} /> : null}
         <BlindTimer handleScore={this.handleScore} handleAction={this.handleAction} toggleRunning={this.toggleRunning}/>
         <div className = "hero-foot">
