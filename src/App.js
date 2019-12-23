@@ -69,35 +69,20 @@ export default class App extends React.Component {
             </div>
             {
               this.state.changeDifficulty ?
-                <DifficultyForm setDifficulty = {
-                  this.setDifficulty
-                }
-                handleChangeDifficulty = {
-                  this.handleChangeDifficulty
-                }
-                difficulty = {
-                  this.state.difficulty
-                }
-              /> : null}
-              <div className="column has-text-centered">
+                <DifficultyForm setDifficulty={this.setDifficulty} handleChangeDifficulty={this.handleChangeDifficulty} difficulty={this.state.difficulty}/>
+                :
+                null
+            }
+            <div className="column has-text-centered">
                 <span className="icon" onClick={() => this.pivotLightDark() }><i className="fas fa-adjust"></i></span>
                 <h4>Light/Dark</h4>
-              </div>
-              {
-                this.state.isRunning ? 
-                  <Taunt isRunning={this.state.isRunning} /> 
-                  :
-                  <GoalMessage score = {
-                    this.state.score
-                  }
-                  action = {
-                    this.state.action
-                  }
-                  difficulty = {
-                    this.state.difficulty
-                  }
-                />
-              }
+            </div>
+            {
+              this.state.isRunning ? 
+                <Taunt isRunning={this.state.isRunning} /> 
+                :
+                <GoalMessage score={this.state.score} action={this.state.action} difficulty={this.state.difficulty}/>
+            }
           </nav>
         </div>
       </section>
