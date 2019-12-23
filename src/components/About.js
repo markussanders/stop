@@ -5,7 +5,6 @@ const About = props => {
 
     return (
         <div className="modal is-active">
-            {/* <div className="modal-background"></div> */}
             <div className="about-background"></div>
             <div className="modal-content modal-difficulty about-text has-text-centered">
                 <h2>ABOUT</h2>
