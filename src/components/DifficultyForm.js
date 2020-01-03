@@ -10,8 +10,8 @@ const DifficultyForm = props => {
         <div className="modal is-active">
             <div className="modal-background"></div>
             <div className="modal-content modal-difficulty">
+                <h2 className="subtitle has-text-light"> CHOOSE YOUR DIFFICULTY: </h2>
                 <form className="select is-danger">
-                    <h2> CHOOSE YOUR DIFFICULTY: </h2>
                     <select value={props.difficulty} onChange={event => handleChange(event)}>
                         <option value="HARD">HARD</option>
                         <option value="IMPOSSIBLE">IMPOSSIBLE</option>
