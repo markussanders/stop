@@ -7,6 +7,7 @@ import GoalMessage from './components/GoalMessage';
 import Taunt from './components/Taunt';
 import About from './components/About';
 import Navbar from './containers/Navbar';
+import Cue from './components/Cue';
 
 export default class App extends React.Component {
 
@@ -18,6 +19,7 @@ export default class App extends React.Component {
     isLight: true,
     isRunning: false,
     renderAbout: false,
+    visualCues: false,
   }
   
   handleAction = action => {
@@ -33,7 +35,8 @@ export default class App extends React.Component {
   }
 
   setDifficulty = difficulty => {
-    this.setState({ difficulty });
+    const visualCues = difficulty === 'EASY';
+    this.setState({ difficulty, visualCues });
     this.handleChangeDifficulty();
   }
 
@@ -51,6 +54,10 @@ export default class App extends React.Component {
 
   toggleAbout = () => {
     this.setState({renderAbout: !this.state.renderAbout});
+  }
+
+  toggleCueTaunt = () => {
+    return this.state.visualCues ? <Cue /> : <Taunt isRunning={this.state.isRunning} />
   }
   render() {
     return (
@@ -79,7 +86,7 @@ export default class App extends React.Component {
             </div>
             {
               this.state.isRunning ? 
-                <Taunt isRunning={this.state.isRunning} /> 
+                this.toggleCueTaunt()
                 :
                 <GoalMessage score={this.state.score} action={this.state.action} difficulty={this.state.difficulty}/>
             }

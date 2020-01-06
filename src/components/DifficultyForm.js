@@ -13,6 +13,7 @@ const DifficultyForm = props => {
                 <h2 className="subtitle has-text-light"> CHOOSE YOUR DIFFICULTY: </h2>
                 <form className="select is-danger">
                     <select value={props.difficulty} onChange={event => handleChange(event)}>
+                        <option value="EASY">EASY</option>
                         <option value="HARD">HARD</option>
                         <option value="IMPOSSIBLE">IMPOSSIBLE</option>
                     </select>
