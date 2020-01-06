@@ -57,7 +57,7 @@ export default class App extends React.Component {
   }
 
   toggleCueTaunt = () => {
-    return this.state.visualCues ? <Cue visualCues={this.state.visualCues} /> : <Taunt isRunning={this.state.isRunning} />
+    return this.state.visualCues ? <Cue /> : <Taunt isRunning={this.state.isRunning} />
   }
   render() {
     return (

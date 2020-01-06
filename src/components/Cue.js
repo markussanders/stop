@@ -5,42 +5,61 @@ export default class Cue extends Component {
         super(props);
         this.state = {
             count: 0,
-            visualCues: this.props.visualCues
+            message: '',
+            color: '',
         }
     }
 
     incrementCount() {
         setInterval(() => {
-            return this.state.count < 110 ? this.setState({count: this.state.count + 10}) : null;
-        }, 1000)
+            return this.state.count < 110 ? this.setState({count: this.state.count + 1}) : null;
+        }, 100)
     }
 
-    handleColorChange() {
+    listenForColorChange() {
+        setInterval(() => {
+            this.setMessageColor();
+        }, 100);
+    }
+
+    setMessageColor() {
         let count = this.state.count;
+        let color = '';
+        let message = '';
         if (count <= 30) {
-            return 'progress is-danger';
+            color = 'progress is-danger';
+            message = 'Keep going...';
         } else if (count > 30 && count <= 60) {
-            return 'progress is-warning';
-        } else if (count > 60 && count <= 90) {
-            return 'progress is-primary';
-        } else if (count === 100) {
-            return 'progress is-success shake';
-        } else if (count > 100) {
-            return 'progress is-danger shake';
+            color = 'progress is-warning';
+            message = 'Almost...';
+        } else if (count > 60 && count < 100) {
+            color = 'progress is-primary';
+            message = 'Get ready...';
+        } else if (count >= 100 && count < 110) {
+            color = 'progress is-success shake';
+            message = 'NOW!';
+        } else if (count >= 110) {
+            color = 'progress is-danger shake';
+            message = 'Too slow 😣';
         } else {
-            return 'progress is-dark';
+            message = 'Look here for help.';
+            color = 'progress is-dark';
         }
+        this.setState({ color, message })
     }
 
     componentDidMount() {
+        this.listenForColorChange();
         this.incrementCount();
     }
 
     render() {
         return (
             <div className="column has-text-centered">
-                <br/>
-                <progress className={this.handleColorChange()} value={`${this.state.count}`} max="100">{`${this.state.count}%`}</progress>
+                <div className="subtitle has-text-danger">
+                    <h4>{this.state.message}</h4>
+                    <progress className={this.state.color} value={`${this.state.count}`} max="100">{`${this.state.count}%`}</progress>
+                </div>
             </div>
         )
     }
