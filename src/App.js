@@ -55,6 +55,10 @@ export default class App extends React.Component {
   toggleAbout = () => {
     this.setState({renderAbout: !this.state.renderAbout});
   }
+
+  toggleCueTaunt = () => {
+    return this.state.visualCues ? <Cue visualCues={this.state.visualCues} /> : <Taunt isRunning={this.state.isRunning} />
+  }
   render() {
     return (
       <section id="app-content" className={`hero is-fullheight ${this.color()} is-bold`}>
@@ -82,8 +86,7 @@ export default class App extends React.Component {
             </div>
             {
               this.state.isRunning ? 
-                // <Taunt isRunning={this.state.isRunning} /> 
-                <Cue visualCues={this.state.visualCues} />
+                this.toggleCueTaunt()
                 :
                 <GoalMessage score={this.state.score} action={this.state.action} difficulty={this.state.difficulty}/>
             }
