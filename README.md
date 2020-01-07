@@ -1,7 +1,5 @@
 # 10 Seconds!
 
-![Gif walkthrough](https://github.com/markussanders/ten-seconds/blob/master/src/photos/ten-seconds-walkthrough%20GIF.gif)
-
 10 Seconds! was inspired by a game in a Chicago Chinatown cafe in which you can win a free boba/milk tea
 if you score `10.000` seconds on a blind timer.
 
@@ -20,6 +18,8 @@ In order to get better at this, I created three modes of difficulty:
   "HARD" –– where no cues are shown and instead taunts are displayed,
   
   "IMPOSSIBLE" –– similar to "HARD" in which there are no visual cues provided, however, unlike the previous three modes in          which achieving ten whole-seconds suffices a 'win', users must achieve a perfect "10.000".
+  
+  ![Gif walkthrough](https://github.com/markussanders/ten-seconds/blob/master/src/photos/ten-seconds-walkthrough%20GIF.gif)
 
  -----------------------------------------------------------------------------------------------------------------------------
  
