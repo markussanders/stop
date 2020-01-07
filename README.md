@@ -1,6 +1,6 @@
 # 10 Seconds!
 
- <iframe src="https://giphy.com/embed/QaAk5qqo0kGrSObMr4" width="480" height="266" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/react-app-ten-seconds-bulmacss-QaAk5qqo0kGrSObMr4"></a></p>
+![Gif walkthrough](https://github.com/markussanders/ten-seconds/blob/master/src/photos/ten-seconds-walkthrough%20GIF.gif)
 
 10 Seconds! was inspired by a game in a Chicago Chinatown cafe in which you can win a free boba/milk tea
 if you score `10.000` seconds on a blind timer.
