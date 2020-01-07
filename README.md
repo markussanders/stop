@@ -12,9 +12,8 @@ In order to get better at this, I created three modes of difficulty:
   
   "IMPOSSIBLE" –– similar to "HARD" in which there are no visual cues provided, however, unlike the previous three modes in          which achieving ten whole-seconds suffices a 'win', users must achieve a perfect "10.000".
 
+ -----------------------------------------------------------------------------------------------------------------------------
  
-  
-   
 This application was created using React.js. In the near future, I plan to:
 
   –– recreate this application using React Native
