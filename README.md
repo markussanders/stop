@@ -5,9 +5,9 @@
 if you score `10.000` seconds on a blind timer. What makes this seemingly-simple task difficult is the struggle of internalizing steady rhythmn.
 
 <div>
-  <img src="https://github.com/markussanders/ten-seconds/blob/master/src/photos/bingo-teas.jpg" alt="Three beverages from Bingo Tea Cafe" height="600" width="400"/>
+  <img src="https://github.com/markussanders/ten-seconds/blob/master/src/photos/bingo-teas.jpg" alt="Three beverages from Bingo Tea Cafe" height="300" width="200"/>
 
-  <img src="https://github.com/markussanders/ten-seconds/blob/master/src/photos/storefront.jpg" alt="Storefront of Bingo Tea Cafe in Chicago's Chinatown" height="600" width="400" />
+  <img src="https://github.com/markussanders/ten-seconds/blob/master/src/photos/storefront.jpg" alt="Storefront of Bingo Tea Cafe in Chicago's Chinatown" height="300" width="200" />
 </div>
 
 
