@@ -13,6 +13,11 @@
 
 .about-text {
     color: white;
+    overflow: scroll;
+}
+
+.bingo-images img {
+    max-width: 320px;
 }
 
 .timer {
