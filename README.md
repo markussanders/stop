@@ -1,8 +1,6 @@
 # 10 Seconds!
 
-<video autoplay>
-  <source src="https://github.com/markussanders/ten-seconds/blob/master/src/photos/video-walkthrough.mp4" type="video/mp4"/>
-</video>
+  <img src="https://github.com/markussanders/ten-seconds/blob/master/src/photos/video-walkthrough.mp4">
 
 
 10 Seconds! was inspired by a game in a Chicago Chinatown cafe in which you can win a free boba/milk tea
