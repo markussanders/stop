@@ -12,7 +12,9 @@ In order to get better at this, I created three modes of difficulty:
 This application was created using React.js. In the near future, I plan to:
 
   -– recreate this application using React Native
+  
   –– incorporate audio cues for time keeping
+  
   –– create different modes of gameplay such as a countdown timer and two-player options
   
  
