@@ -4,8 +4,10 @@
 10 Seconds! was inspired by a game in a Chicago Chinatown cafe in which you can win a free boba/milk tea
 if you score `10.000` seconds on a blind timer. What makes this seemingly-simple task difficult is the struggle of internalizing steady rhythmn.
 
-![Three beverages from Bingo Tea Cafe](https://github.com/markussanders/ten-seconds/blob/master/src/photos/bingo-teas.jpg){:height="50%" width="50%"}
-![Storefront of Bingo Tea Cafe in Chicago's Chinatown](https://github.com/markussanders/ten-seconds/blob/master/src/photos/storefront.jpg){:height="50%" width="50%"}
+<img src="https://github.com/markussanders/ten-seconds/blob/master/src/photos/bingo-teas.jpg" alt="Three beverages from Bingo Tea Cafe" height="600" width="400"/>
+
+<img src="https://github.com/markussanders/ten-seconds/blob/master/src/photos/storefront.jpg" alt="Storefront of Bingo Tea Cafe in Chicago's Chinatown" height="600" width="400" />
+
 
 In order to get better at this, I created three modes of difficulty:
 
