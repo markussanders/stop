@@ -1,5 +1,8 @@
 # 10 Seconds!
 
+
+<a href="http://ten-seconds.herokuapp.com/" target="blank"><h2>Play it live!</h2></a>
+
 10 Seconds! was inspired by a game in a Chicago Chinatown cafe in which you can win a free boba/milk tea
 if you score `10.000` seconds on a blind timer.
 
