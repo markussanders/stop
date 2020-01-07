@@ -19,7 +19,7 @@ const About = props => {
                     <br/> In order to get better at this, I created three modes:
                     <br/> "EASY" –– where visual cues are displayed to signify each second,
                     <br/> "HARD" –– where no cues are shown and
-                    <br/> "IMPOSSIBLE" –– similar to "HARD" in which there are no audio cues provided, however, unlike the previous
+                    <br/> "IMPOSSIBLE" –– similar to "HARD" in which there are no visual cues provided, however, unlike the previous
                     three modes in which achieving ten whole-seconds suffices a 'win', users must achieve a <em>perfect</em> "10.000".
                     <br/><br/>
                     <div className="columns bingo-images">
